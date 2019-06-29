@@ -1,5 +1,9 @@
 Extension Screens:
 
+- Home Screen
+
+  - Information about the app
+
 - Settings / Preferences
 
   - List of checkboxes where user can select what they care about
