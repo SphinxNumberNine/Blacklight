@@ -15,6 +15,10 @@ Extension Screens:
 - Resources tab
   - What people should be aware of regarding privacy
   
+- Our Privacy Policy
+  - Should be really simple and understandable
+  - Should be able to run code on our privacy policy to show users that there's nothing visible
+  
  How to test locally:
  
  - run `npm install` from within the extension folder
