@@ -1,4 +1,4 @@
-AI Legal Project
+Blacklight
 
 - Please put all code in its proper folder
   - Processing is for any python / ML code for the actual processing of text, etc
