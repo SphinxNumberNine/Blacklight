@@ -111,6 +111,7 @@ export default function Header() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
+        title={<img src="../assets/BLACKLIGHT.png" />}
       >
         <Toolbar>
           <IconButton
