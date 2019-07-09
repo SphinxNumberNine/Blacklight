@@ -7,7 +7,7 @@ class HomeScreen extends Component {
   }
 
   render() {
-    return <Container>Hi Deepen</Container>;
+    return <Container>Hello Again Deepen</Container>;
   }
 }
 
