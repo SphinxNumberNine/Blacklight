@@ -20,6 +20,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ChartIcon from "@material-ui/icons/InsertChart";
 
+import BlacklightLogo from "../assets/BLACKLIGHT (2).png";
+
 // components
 import HomeScreen from "./HomeScreen";
 
@@ -27,7 +29,10 @@ const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#DBDBDB"
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -35,7 +40,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    backgroundColor: "#854DFF"
+    backgroundColor: "#FFFFFF"
   },
   appBarShift: {
     marginLeft: drawerWidth,
@@ -46,7 +51,8 @@ const useStyles = makeStyles(theme => ({
     })
   },
   menuButton: {
-    marginRight: 36
+    marginRight: 36,
+    color: "#854DFF"
   },
   hide: {
     display: "none"
@@ -111,7 +117,6 @@ export default function Header() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
-        title={<img src="../assets/BLACKLIGHT.png" />}
       >
         <Toolbar>
           <IconButton
@@ -125,9 +130,10 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
+          <img alt="logo" src={BlacklightLogo} style={{ width: "40%" }} />
+          {/*<Typography variant="h6" noWrap>
             Blacklight
-          </Typography>
+          </Typography>*/}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -146,7 +152,7 @@ export default function Header() {
       >
         <div className={classes.toolbar}>
           <Typography>Menu</Typography>
-          <IconButton onClick={handleDrawerClose}>
+          <IconButton onClick={handleDrawerClose} className={classes.icon}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
             ) : (
