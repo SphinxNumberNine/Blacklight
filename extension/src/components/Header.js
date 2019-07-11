@@ -20,7 +20,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ChartIcon from "@material-ui/icons/InsertChart";
 
-import BlacklightLogo from "../assets/BLACKLIGHT (2).png";
+import BlacklightLogo from "../assets/BLACKLIGHT-2.png";
 
 // components
 import HomeScreen from "./HomeScreen";
