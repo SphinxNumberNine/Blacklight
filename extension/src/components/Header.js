@@ -1,3 +1,5 @@
+/* global chrome */
+
 import React from "react";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -130,7 +132,17 @@ export default function Header() {
           >
             <MenuIcon />
           </IconButton>
-          <img alt="logo" src={BlacklightLogo} style={{ width: "40%" }} />
+          <img
+            alt="logo"
+            src={BlacklightLogo}
+            style={{ width: "40%" }}
+            onClick={() => {
+              chrome.runtime.sendMessage({
+                subject: "link clicked",
+                url: "https://blacklightlaw.wixsite.com/blacklight"
+              });
+            }}
+          />
           {/*<Typography variant="h6" noWrap>
             Blacklight
           </Typography>*/}
