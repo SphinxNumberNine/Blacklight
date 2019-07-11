@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "@material-ui/core";
+import { Container, Typography } from "@material-ui/core";
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -7,7 +7,26 @@ class HomeScreen extends Component {
   }
 
   render() {
-    return <Container>Hello Again Deepen</Container>;
+    return (
+      <Container style={{ textAlign: "left" }}>
+        <Typography
+          style={{ fontSize: "40px", marginTop: "50px" }}
+          variant="h4"
+          component="h4"
+          gutterBottom
+        >
+          Revealing True
+        </Typography>
+        <Typography
+          style={{ fontSize: "40px" }}
+          variant="h4"
+          component="h4"
+          gutterBottom
+        >
+          Privacy
+        </Typography>
+      </Container>
+    );
   }
 }
 
