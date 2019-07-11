@@ -21,6 +21,7 @@ import FeedbackIcon from "@material-ui/icons/Feedback";
 import ListItemText from "@material-ui/core/ListItemText";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ChartIcon from "@material-ui/icons/InsertChart";
+import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
 
 import BlacklightLogo from "../assets/BLACKLIGHT-2.png";
 
@@ -185,6 +186,12 @@ export default function Header() {
               <FeedbackIcon className={classes.icon} />
             </ListItemIcon>
             <ListItemText primary="Warnings" />
+          </ListItem>
+          <ListItem button key="Our Privacy Policy">
+            <ListItemIcon>
+              <LibraryBooksIcon className={classes.icon} />
+            </ListItemIcon>
+            <ListItemText primary="Our Privacy Policy" />
           </ListItem>
           <ListItem button key="Resources">
             <ListItemIcon>
