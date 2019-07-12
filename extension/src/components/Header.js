@@ -138,9 +138,12 @@ export default function Header() {
             src={BlacklightLogo}
             style={{ width: "40%" }}
             onClick={() => {
-              console.log("2");
+              /* console.log("2");
               chrome.runtime.sendMessage({
                 subject: "link clicked",
+                url: "https://blacklightlaw.wixsite.com/blacklight"
+              }); */
+              chrome.tabs.create({
                 url: "https://blacklightlaw.wixsite.com/blacklight"
               });
             }}
