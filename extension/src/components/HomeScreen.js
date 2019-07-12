@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, Typography, Button } from "@material-ui/core";
 import ErrorLogo from "@material-ui/icons/ErrorOutline";
 import PhoneLockLogo from "@material-ui/icons/ScreenLockPortrait";
 import CloudLogo from "@material-ui/icons/CloudOutlined";
@@ -21,7 +21,8 @@ class HomeScreen extends Component {
                 fontSize: "40px",
                 marginTop: "40px",
                 marginLeft: "0px",
-                color: "#854DFF"
+                color: "#854DFF",
+                fontWeight: "normal"
               }}
               variant="h4"
               component="h4"
@@ -34,14 +35,15 @@ class HomeScreen extends Component {
               style={{
                 fontSize: "40px",
                 marginLeft: "0px",
-                color: "#854DFF"
+                color: "#854DFF",
+                fontWeight: "normal"
               }}
               variant="h4"
               component="h4"
               gutterBottom
               noWrap
             >
-              Privacy
+              Privacy.
             </Typography>
             <Typography
               style={{
@@ -168,12 +170,12 @@ class HomeScreen extends Component {
               }}
             />
             <Typography
-              style={{ marginLeft: "105px", fontSize: "20px" }}
+              style={{ marginLeft: "100px", fontSize: "20px" }}
               noWrap
             >
               Keep Us Humble.
             </Typography>
-            <Typography
+            {/* <Typography
               style={{
                 color: "#854DFF",
                 marginLeft: "50px",
@@ -182,7 +184,23 @@ class HomeScreen extends Component {
               noWrap
             >
               SCAN OUR POLICY
-            </Typography>
+            </Typography> */}
+            <Button
+              variant="outlined"
+              label="Scan Our Policy"
+              size="large"
+              style={{
+                marginTop: "10px",
+                marginLeft: "87px",
+                borderRadius: 25,
+                fontWeight: "bolder",
+                fontSize: "15px",
+                backgroundColor: "#854DFF",
+                color: "#DBDBDB"
+              }}
+            >
+              SCAN OUR POLICY
+            </Button>
           </Grid>
         </Grid>
       </Container>
