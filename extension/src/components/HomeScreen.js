@@ -19,7 +19,7 @@ class HomeScreen extends Component {
           <Grid item>
             <Typography
               style={{
-                fontSize: '40px',
+                fontSize: '45px',
                 marginTop: '40px',
                 marginLeft: '0px',
                 color: '#854DFF',
@@ -30,11 +30,11 @@ class HomeScreen extends Component {
               gutterBottom
               noWrap
             >
-              Revealing True
+              Privacy,
             </Typography>
             <Typography
               style={{
-                fontSize: '40px',
+                fontSize: '45px',
                 marginLeft: '0px',
                 color: '#854DFF',
                 fontWeight: 'bold'
@@ -44,7 +44,7 @@ class HomeScreen extends Component {
               gutterBottom
               noWrap
             >
-              Privacy.
+              Simplified.
             </Typography>
             <Typography
               style={{
