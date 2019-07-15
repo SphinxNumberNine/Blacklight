@@ -6,7 +6,7 @@ class PrivacyPolicyScreen extends Component {
     super(props);
   }
   render() {
-    return <Container>Privacy Policy Screen</Container>;
+    return <Container>Deepen Privacy Policy Screen</Container>;
   }
 }
 
