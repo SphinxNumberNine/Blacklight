@@ -1,0 +1,5 @@
+module.exports = {
+  primary_purple: "#854DFF",
+  light_grey: "#DBDBDB",
+  "black-ish": "#2F2E2E"
+};
