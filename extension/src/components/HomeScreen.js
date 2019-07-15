@@ -3,8 +3,12 @@ import { Container, Grid, Typography, Button } from "@material-ui/core";
 import ErrorLogo from "@material-ui/icons/ErrorOutline";
 import PhoneLockLogo from "@material-ui/icons/ScreenLockPortrait";
 import CloudLogo from "@material-ui/icons/CloudOutlined";
+import LockDockLogo from "../assets/LockDoctrans.png";
+import { goTo } from "route-lite";
 
 import RalewayExtraBold from "../assets/fonts/Raleway-ExtraBold.ttf";
+
+import PrivacyPolicyScreen from "./PrivacyPolicyScreen";
 
 class HomeScreen extends Component {
   constructor(props) {
@@ -160,52 +164,49 @@ class HomeScreen extends Component {
               </Grid>
             </Grid>
           </Grid>
-          {this.renderSecondHalf()}
+          <Grid item justify="center" noWrap>
+            {/*<PhoneLockLogo
+              style={{
+                height: "300px",
+                width: "300px",
+                marginLeft: "30px",
+                marginTop: "30px",
+                color: "#606060"
+              }}
+            /> */}
+            <img
+              src={LockDockLogo}
+              style={{ marginTop: "40px", marginLeft: "50px" }}
+            />
+            <Typography
+              style={{
+                marginLeft: "130px",
+                fontSize: "20px"
+              }}
+              noWrap
+            >
+              Keep Us Humble.
+            </Typography>
+            <Button
+              variant="outlined"
+              label="Scan Our Policy"
+              size="large"
+              style={{
+                marginTop: "5px",
+                marginLeft: "110px",
+                borderRadius: 35,
+                fontWeight: "bolder",
+                fontSize: "17px",
+                backgroundColor: "#854DFF",
+                color: "#DBDBDB"
+              }}
+              onClick={() => goTo(PrivacyPolicyScreen)}
+            >
+              SCAN OUR POLICY
+            </Button>
+          </Grid>
         </Grid>
       </Container>
-    );
-  }
-
-  renderSecondHalf() {
-    if (!this.props) {
-      return null;
-    }
-
-    if (this.props.open) {
-      return null;
-    }
-
-    return (
-      <Grid item justify="center" noWrap>
-        <PhoneLockLogo
-          style={{
-            height: "300px",
-            width: "300px",
-            marginLeft: "30px",
-            marginTop: "30px",
-            color: "#606060"
-          }}
-        />
-        <Typography style={{ marginLeft: "100px", fontSize: "20px" }} noWrap>
-          Keep Us Humble.
-        </Typography>
-        <Button
-          variant="outlined"
-          label="Scan Our Policy"
-          size="large"
-          style={{
-            marginTop: "10px",
-            marginLeft: "87px",
-            borderRadius: 25,
-            fontWeight: "bolder",
-            fontSize: "15px",
-            backgroundColor: "#854DFF",
-            color: "#DBDBDB"
-          }}
-        >
-          SCAN OUR POLICY
-        </Button>
-      </Grid>
     );
   }
 }

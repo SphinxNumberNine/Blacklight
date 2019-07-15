@@ -1,6 +1,7 @@
 /* global chrome */
 
 import React from "react";
+import Router, { goTo, goBack, Link } from "route-lite";
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -203,13 +204,13 @@ export default function Header() {
         </div>
         <Divider />
         <List>
-          <ListItem button key="Home" onClick={() => setScreen("Home")}>
+          <ListItem button key="Home" onClick={() => goTo(HomeScreen)}>
             <ListItemIcon>
               <HomeIcon className={classes.icon} />
             </ListItemIcon>
             <ListItemText primary="Blacklight Home" />
           </ListItem>
-          <ListItem button key="Warnings" onClick={() => setScreen("Warnings")}>
+          <ListItem button key="Warnings" onClick={() => goTo(WarningsScreen)}>
             <ListItemIcon>
               <FeedbackIcon className={classes.icon} />
             </ListItemIcon>
@@ -218,7 +219,7 @@ export default function Header() {
           <ListItem
             button
             key="Our Privacy Policy"
-            onClick={() => setScreen("Our Privacy Policy")}
+            onClick={() => goTo(PrivacyPolicyScreen)}
           >
             <ListItemIcon>
               <LibraryBooksIcon className={classes.icon} />
@@ -228,14 +229,14 @@ export default function Header() {
           <ListItem
             button
             key="Resources"
-            onClick={() => setScreen("Resources")}
+            onClick={() => goTo(ResourcesScreen)}
           >
             <ListItemIcon>
               <ChartIcon className={classes.icon} />
             </ListItemIcon>
             <ListItemText primary="Privacy Resources" />
           </ListItem>
-          <ListItem button key="Settings" onClick={() => setScreen("Settings")}>
+          <ListItem button key="Settings" onClick={() => goTo(SettingsScreen)}>
             <ListItemIcon>
               <SettingsIcon className={classes.icon} />
             </ListItemIcon>
@@ -245,7 +246,7 @@ export default function Header() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        {renderScreen()}
+        <Router>{renderScreen()}</Router>
       </main>
     </div>
   );
