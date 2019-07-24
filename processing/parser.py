@@ -162,8 +162,8 @@ def parse_all(path):
     phrase_list = []
     for sentence in split_into_sentences(tos):
         print(sentence)
-        phrase_list.append(run(sentence))
+        phrase_list += run(sentence)
     
-    return set(phrase_list)
+    return (set(phrase_list))
 
 print(parse_all("facebook_tos.txt"))
