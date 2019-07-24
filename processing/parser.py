@@ -162,7 +162,7 @@ def parse_all(path):
     phrase_list = []
     for sentence in split_into_sentences(tos):
         print(sentence)
-        phrase_list += run(sentence)
+        phrase_list += run(sentence) 
     
     return (set(phrase_list))
 
