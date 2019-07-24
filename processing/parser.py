@@ -1,15 +1,14 @@
 from stat_parser import Parser
 import re
+import string
 
 parser = Parser()
 
-'''
-make sure this is in pyStatParser folder
+## make sure this is in pyStatParser folder
 
-WEIRD THINGS:
---> punctuation at the end of sentences messes things up
---> needs to be tested
-'''
+#--> needs to be tested
+
+
 
 # https://stackoverflow.com/questions/5454322/python-how-to-match-nested-parentheses-with-regex
 # uses regex to find grouping of parentheses
@@ -31,7 +30,6 @@ def matches(line, opendelim='(', closedelim=')'):
         elif c == closedelim:
             if len(stack) > 0:
                 prevpos = stack.pop()
-                # print("matched", prevpos, pos, line[prevpos:pos])
                 yield (prevpos, pos, len(stack))
             else:
                 # error
@@ -48,7 +46,6 @@ def create_stack(tree):
     stack = []
     space = False
     
-    #print(str(tree).split())
     for part in str(tree).split():
         if part[0] == "(":
             stack.append("(")
@@ -63,6 +60,7 @@ def create_stack(tree):
             stack.append(word)
             for paren in range(count):
                 stack.append(")")
+
     return stack
 
 # converts stack (list) to string
@@ -73,8 +71,12 @@ def strip_space(sent):
     return re.sub(" +", " ", sent)
             
 def run(sentence):
+    if sentence[-1] in string.punctuation:
+        sentence = sentence[:-1]
+
     print(parser.parse(sentence))
     print("\n")
+
     stack = create_stack(parser.parse(sentence)) 
     sent = stack_to_string(stack)
 
@@ -87,11 +89,12 @@ def run(sentence):
         phrase = phrase.replace('(','')
         phrase = phrase.replace(')','')
         phrase = phrase[:-1]
+        phrase = strip_space(phrase.strip())
 
-        if phrase.strip() not in phrase_list:
-            phrase_list.append(strip_space(phrase.strip()))
+        if phrase not in phrase_list:
+            phrase_list.append(phrase)
 
     print(phrase_list)
-
-run("We receive and store any information")
-
+    return phrase_list
+    
+run("We receive and store any information.")
