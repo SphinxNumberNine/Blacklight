@@ -7,9 +7,7 @@ parser = Parser()
 make sure this is in pyStatParser folder
 
 WEIRD THINGS:
---> changed all () to [] and it worked??
 --> punctuation at the end of sentences messes things up
---> contractions show up weird (but still work)
 --> needs to be tested
 '''
 
@@ -49,46 +47,35 @@ def matches(line, opendelim='(', closedelim=')'):
 def create_stack(tree):
     stack = []
     space = False
+    
+    #print(str(tree).split())
     for part in str(tree).split():
-        if part[0] == "[":
-            stack.append("[")
+        if part[0] == "(":
+            stack.append("(")
         else:
             count = 0
             word = ""
             for char in part:
-                if char != "]":
+                if char != ")":
                     word += char
                 else:
                     count += 1
             stack.append(word)
             for paren in range(count):
-                stack.append("]")
+                stack.append(")")
     return stack
 
 # converts stack (list) to string
 def stack_to_string(stack):
-    s = str(stack)
-    s = s.replace('\'', '') # this is why contractions are weird
-    s = s.replace('\"', '')
-    s = s.replace(',', '')
-    s = s.replace(' ', '')
-    
-    i = 0
-    while i < len(s):
-        if s[i] == '[':
-            s = s[:i] + '(' + s[i+1:]
-        if s[i] == ']':
-            if s[i-1].isalnum():
-               s = s[:i] + ' )' + s[i+1:] 
-            else:
-                s = s[:i] + ')' + s[i+1:]  
-        i+=1
-    return s
+    return " ".join(stack).strip()
 
+def strip_space(sent):
+    return re.sub(" +", " ", sent)
+            
 def run(sentence):
     print(parser.parse(sentence))
     print("\n")
-    stack = create_stack(parser.parse(sentence))
+    stack = create_stack(parser.parse(sentence)) 
     sent = stack_to_string(stack)
 
     phrase_list = []
@@ -101,12 +88,10 @@ def run(sentence):
         phrase = phrase.replace(')','')
         phrase = phrase[:-1]
 
-        if phrase not in phrase_list:
-            phrase_list.append(phrase)
+        if phrase.strip() not in phrase_list:
+            phrase_list.append(strip_space(phrase.strip()))
 
     print(phrase_list)
 
-
 run("We receive and store any information")
-
 
