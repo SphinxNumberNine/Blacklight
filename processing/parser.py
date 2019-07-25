@@ -161,9 +161,13 @@ def parse_all(path):
     
     phrase_list = []
     for sentence in split_into_sentences(tos):
-        print(sentence)
-        phrase_list += run(sentence) 
+        #print(sentence)
+        x = run(sentence)
+        if x != None:
+            phrase_list += x
     
-    return (set(phrase_list))
+    return set(phrase_list)
 
-print(parse_all("facebook_tos.txt"))
+
+writeFile("facebook_parsed.txt",str(parse_all("facebook_tos.txt")))
+
