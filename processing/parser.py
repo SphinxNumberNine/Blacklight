@@ -169,5 +169,12 @@ def parse_all(path):
     return set(phrase_list)
 
 
+#remember to change file names
 writeFile("facebook_parsed.txt",str(parse_all("facebook_tos.txt")))
 
+
+#remember to change file names
+tos = readFile("facebook_parsed.txt")
+tos = tos.replace(" ,", ",")
+tos = tos.replace("\', \'","\n") #this makes it go into separate cells in an excel sheet
+writeFile("facebook_parsed_2.txt", tos)
