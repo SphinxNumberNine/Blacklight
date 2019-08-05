@@ -1,6 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
+const mongoose = require("mongoose");
+const keys = require("./config/keys");
+require("./models/User");
+
+mongoose.connect(keys.MONGO_URI);
 
 var app = express();
 
