@@ -5,5 +5,6 @@
 
 module.exports = {
   MONGO_URI:
-    "mongodb+srv://BlacklightAdmin:privacysimplified@main-rq03r.mongodb.net/test?retryWrites=true&w=majority"
+    "mongodb+srv://BlacklightAdmin:privacysimplified@main-rq03r.mongodb.net/test?retryWrites=true&w=majority",
+  HASH_KEY: "PRIVACYSIMPLIFIED"
 };

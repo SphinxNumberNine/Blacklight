@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const keys = require("./config/keys");
 require("./models/User");
 
-mongoose.connect(keys.MONGO_URI);
+mongoose.connect(keys.MONGO_URI, { useNewUrlParser: true });
 
 var app = express();
 
@@ -15,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 require("./routes/test")(app);
+require("./routes/userRoutes")(app);
 
 const PORT = process.env.PORT || 5000; // if process.env.PORT is undefined, the port is set to 5000 by default
 app.listen(PORT);
