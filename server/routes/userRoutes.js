@@ -50,6 +50,11 @@ module.exports = app => {
 
   app.post("/update_user", async (req, res) => {
     // validate user
+    try {
+      jwt.verify(req.body.token, keys.HASH_KEY);
+    } catch (err) {
+      res.status(401).json({ message: unauthorized });
+    }
 
     const id = req.body.id;
     var user = await User.findById(id);
