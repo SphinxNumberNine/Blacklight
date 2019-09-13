@@ -2,15 +2,15 @@
 // this includes, but is not limited to, registration, editing details, changing password, etc
 // all functions defined in this file require authentication, with the exception of registration
 
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const keys = require("../config/keys");
+const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const keys = require('../config/keys');
 
-const User = mongoose.model("users");
+const User = mongoose.model('users');
 
 module.exports = app => {
-  app.post("/register_user", async (req, res) => {
+  app.post('/api/register_user', async (req, res) => {
     let hashedPass = bcrypt.hashSync(req.body.password.toString(), 10);
     const newUser = await new User({
       firstName: req.body.firstName,
@@ -22,11 +22,11 @@ module.exports = app => {
 
     res.status(200).json({
       user: newUser,
-      message: "user saved"
+      message: 'user saved'
     });
   });
 
-  app.post("/login", async (req, res) => {
+  app.post('/api/login', async (req, res) => {
     const user = await User.findOne({ email: req.body.email });
     if (bcrypt.compareSync(req.body.password, user.password)) {
       const token = jwt.sign(
@@ -38,17 +38,17 @@ module.exports = app => {
         keys.HASH_KEY.toString()
       );
       res.status(200).json({
-        message: "logged in as " + user.firstName + " " + user.lastName,
+        message: 'logged in as ' + user.firstName + ' ' + user.lastName,
         token
       });
     } else {
       res.status(401).json({
-        message: "unauthorized"
+        message: 'unauthorized'
       });
     }
   });
 
-  app.post("/update_user", async (req, res) => {
+  app.post('/api/update_user', async (req, res) => {
     // validate user
     try {
       jwt.verify(req.body.token, keys.HASH_KEY);
@@ -67,7 +67,7 @@ module.exports = app => {
 
     res.status(200).json({
       user,
-      message: "user updated"
+      message: 'user updated'
     });
   });
 };

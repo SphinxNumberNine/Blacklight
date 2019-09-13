@@ -1,103 +1,103 @@
 /* global chrome */
 
-import React from "react";
-import Router, { goTo, goBack, Link } from "route-lite";
-import clsx from "clsx";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import HomeIcon from "@material-ui/icons/Home";
-import FeedbackIcon from "@material-ui/icons/Feedback";
-import ListItemText from "@material-ui/core/ListItemText";
-import SettingsIcon from "@material-ui/icons/Settings";
-import ChartIcon from "@material-ui/icons/InsertChart";
-import LibraryBooksIcon from "@material-ui/icons/LibraryBooks";
+import React from 'react';
+import Router, { goTo, goBack, Link } from 'route-lite';
+import clsx from 'clsx';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import HomeIcon from '@material-ui/icons/Home';
+import FeedbackIcon from '@material-ui/icons/Feedback';
+import ListItemText from '@material-ui/core/ListItemText';
+import SettingsIcon from '@material-ui/icons/Settings';
+import ChartIcon from '@material-ui/icons/InsertChart';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
-import BlacklightLogo from "../assets/BLACKLIGHT-2.png";
+import BlacklightLogo from '../assets/BLACKLIGHT-2.png';
 
 // components
-import HomeScreen from "./HomeScreen";
-import ResourcesScreen from "./ResourcesScreen";
-import WarningsScreen from "./WarningsScreen";
-import SettingsScreen from "./SettingsScreen";
-import PrivacyPolicyScreen from "./PrivacyPolicyScreen";
+import HomeScreen from './HomeScreen';
+import ResourcesScreen from './ResourcesScreen';
+import WarningsScreen from './WarningsScreen';
+import SettingsScreen from './SettingsScreen';
+import PrivacyPolicyScreen from './PrivacyPolicyScreen';
 
 const drawerWidth = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
-    display: "flex",
-    width: "100%",
-    height: "100%",
-    backgroundColor: "#DBDBDB"
+    display: 'flex',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#DBDBDB'
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    backgroundColor: "#FFFFFF"
+    backgroundColor: '#FFFFFF'
   },
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
+    transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
     })
   },
   menuButton: {
     marginRight: 36,
-    color: "#854DFF"
+    color: '#854DFF'
   },
   hide: {
-    display: "none"
+    display: 'none'
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: "nowrap"
+    whiteSpace: 'nowrap'
   },
   drawerOpen: {
     width: drawerWidth,
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       // duration: theme.transitions.duration.enteringScreen
       duration: 225
     })
   },
   drawerClose: {
-    transition: theme.transitions.create("width", {
+    transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
       // duration: theme.transitions.duration.leavingScreen
       duration: 225
     }),
-    overflowX: "hidden",
+    overflowX: 'hidden',
     width: theme.spacing(7) + 1,
-    [theme.breakpoints.up("sm")]: {
+    [theme.breakpoints.up('sm')]: {
       width: theme.spacing(9) + 1
     }
   },
   icon: {
-    color: "#854DFF"
+    color: '#854DFF'
   },
   toolbar: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "flex-end",
-    padding: "0 8px",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    padding: '0 8px',
     ...theme.mixins.toolbar
   },
   content: {
@@ -110,7 +110,7 @@ export default function Header() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [screen, setScreen] = React.useState("Home");
+  const [screen, setScreen] = React.useState('Home');
 
   function handleDrawerOpen() {
     setOpen(true);
@@ -122,36 +122,34 @@ export default function Header() {
 
   function renderScreen() {
     switch (screen) {
-      case "Home":
+      case 'Home':
         return <HomeScreen />;
-      case "Warnings":
+      case 'Warnings':
         return <WarningsScreen />;
-      case "Settings":
+      case 'Settings':
         return <SettingsScreen />;
-      case "Our Privacy Policy":
+      case 'Our Privacy Policy':
         return <PrivacyPolicyScreen />;
-      case "Resources":
+      case 'Resources':
         return <ResourcesScreen />;
     }
   }
-
-  console.log("YERR");
 
   return (
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        position="fixed"
+        position='fixed'
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
       >
         <Toolbar>
           <IconButton
-            color="inherit"
-            aria-label="Open drawer"
+            color='inherit'
+            aria-label='Open drawer'
             onClick={handleDrawerOpen}
-            edge="start"
+            edge='start'
             className={clsx(classes.menuButton, {
               [classes.hide]: open
             })}
@@ -159,9 +157,9 @@ export default function Header() {
             <MenuIcon />
           </IconButton>
           <img
-            alt="logo"
+            alt='logo'
             src={BlacklightLogo}
-            style={{ width: "40%" }}
+            style={{ width: '40%' }}
             onClick={() => {
               /* console.log("2");
               chrome.runtime.sendMessage({
@@ -169,7 +167,7 @@ export default function Header() {
                 url: "https://blacklightlaw.wixsite.com/blacklight"
               }); */
               chrome.tabs.create({
-                url: "https://blacklightlaw.wixsite.com/blacklight"
+                url: 'https://blacklightai.com'
               });
             }}
           />
@@ -179,7 +177,7 @@ export default function Header() {
         </Toolbar>
       </AppBar>
       <Drawer
-        variant="permanent"
+        variant='permanent'
         className={clsx(classes.drawer, {
           [classes.drawerOpen]: open,
           [classes.drawerClose]: !open
@@ -195,7 +193,7 @@ export default function Header() {
         <div className={classes.toolbar}>
           <Typography>Menu</Typography>
           <IconButton onClick={handleDrawerClose} className={classes.icon}>
-            {theme.direction === "rtl" ? (
+            {theme.direction === 'rtl' ? (
               <ChevronRightIcon />
             ) : (
               <ChevronLeftIcon />
@@ -204,43 +202,43 @@ export default function Header() {
         </div>
         <Divider />
         <List>
-          <ListItem button key="Home" onClick={() => goTo(HomeScreen)}>
+          <ListItem button key='Home' onClick={() => goTo(HomeScreen)}>
             <ListItemIcon>
               <HomeIcon className={classes.icon} />
             </ListItemIcon>
-            <ListItemText primary="Blacklight Home" />
+            <ListItemText primary='Blacklight Home' />
           </ListItem>
-          <ListItem button key="Warnings" onClick={() => goTo(WarningsScreen)}>
+          <ListItem button key='Warnings' onClick={() => goTo(WarningsScreen)}>
             <ListItemIcon>
               <FeedbackIcon className={classes.icon} />
             </ListItemIcon>
-            <ListItemText primary="Warnings" />
+            <ListItemText primary='Warnings' />
           </ListItem>
           <ListItem
             button
-            key="Our Privacy Policy"
+            key='Our Privacy Policy'
             onClick={() => goTo(PrivacyPolicyScreen)}
           >
             <ListItemIcon>
               <LibraryBooksIcon className={classes.icon} />
             </ListItemIcon>
-            <ListItemText primary="Our Privacy Policy" />
+            <ListItemText primary='Our Privacy Policy' />
           </ListItem>
           <ListItem
             button
-            key="Resources"
+            key='Resources'
             onClick={() => goTo(ResourcesScreen)}
           >
             <ListItemIcon>
               <ChartIcon className={classes.icon} />
             </ListItemIcon>
-            <ListItemText primary="Privacy Resources" />
+            <ListItemText primary='Privacy Resources' />
           </ListItem>
-          <ListItem button key="Settings" onClick={() => goTo(SettingsScreen)}>
+          <ListItem button key='Settings' onClick={() => goTo(SettingsScreen)}>
             <ListItemIcon>
               <SettingsIcon className={classes.icon} />
             </ListItemIcon>
-            <ListItemText primary="Settings" />
+            <ListItemText primary='Settings' />
           </ListItem>
         </List>
       </Drawer>
