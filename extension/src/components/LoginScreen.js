@@ -11,6 +11,7 @@ import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 
 import Header from './Header';
+import SignupScreen from './SignupScreen';
 
 import BlacklightLogo from '../assets/BLACKLIGHT-2.png';
 
@@ -20,7 +21,8 @@ class LoginScreen extends Component {
     this.state = {
       username: '',
       password: '',
-      loggedIn: false
+      loggedIn: false,
+      requestSignIn: false
     };
   }
 
@@ -93,11 +95,13 @@ class LoginScreen extends Component {
               backgroundColor: '#854DFF',
               color: '#DBDBDB'
             }}
+            onClick={() => this.signUp()}
           >
             Sign Up for Blacklight
           </Button>
         </div>
         {this.state.loggedIn ? <Redirect to='/dashboard' /> : <div />}
+        {this.state.requestSignIn ? <Redirect to='/signup' /> : <div />}
       </Container>
     );
   }
@@ -128,7 +132,11 @@ class LoginScreen extends Component {
     }
   }
 
-  signUp() {}
+  signUp() {
+    this.setState({
+      requestSignIn: true
+    });
+  }
 }
 
 export default LoginScreen;
