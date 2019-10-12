@@ -164,7 +164,7 @@ class HomeScreen extends Component {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item justify="center" noWrap>
+          <Grid item noWrap>
             {/*<PhoneLockLogo
               style={{
                 height: "300px",
